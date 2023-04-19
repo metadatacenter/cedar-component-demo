@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 350px;
+  margin: 10px;
+}
+
+.header-image {
+  background-image: url('../../assets/images/cedar-logo-80x80.png');
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  background-color: #3d8085;
+}
+
+div.card-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.link-icon {
+  font-size: 40px;
+  color: white;
+}
+
+a {
+  margin-bottom: 20px;
+}

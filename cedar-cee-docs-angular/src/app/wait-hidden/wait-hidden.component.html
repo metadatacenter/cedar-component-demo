@@ -1,0 +1,39 @@
+<h1>CEDAR Embeddable Editor</h1>
+<h2>Wait for config - hidden</h2>
+
+<p>
+  The example below shows the loading without a spinner.
+  In order to achieve this, a partial config is passed in first, and the after 3 seconds the proper one.
+</p>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Configuration 1</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre><code [highlight]="wrongConfiguration | json"></code></pre>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Configuration 2</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre><code [highlight]="goodConfiguration | json"></code></pre>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Result</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <cedar-embeddable-editor
+      [config]="configuration"
+    ></cedar-embeddable-editor>
+  </mat-card-content>
+</mat-card>

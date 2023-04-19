@@ -1,0 +1,26 @@
+<h1>CEDAR Embeddable Editor</h1>
+<h2>Basic configuration</h2>
+
+<p>The example below shows the editor with only two parameters set.</p>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Configuration</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre><code [highlight]="configuration | json"></code></pre>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Result</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <cedar-embeddable-editor
+      [config]="configuration"
+    ></cedar-embeddable-editor>
+  </mat-card-content>
+</mat-card>
