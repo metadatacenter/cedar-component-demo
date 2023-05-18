@@ -1,0 +1,25 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+    <h4>CEDAR Embeddable Editor</h4>
+
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/intro']"><span matLine>Intro</span></a>
+      <a mat-list-item [routerLink]="['/requirements']"><span matLine>Requirements</span></a>
+      <a mat-list-item [routerLink]="['/resources']"><span matLine>Resources</span></a>
+      <a mat-list-item [routerLink]="['/parameters']"><span matLine>Parameters</span></a>
+      <a mat-list-item [routerLink]="['/config-basic']"><span matLine>Basic configuration</span></a>
+      <a mat-list-item [routerLink]="['/config-controlled']"><span matLine>Controlled terms</span></a>
+      <a mat-list-item [routerLink]="['/wait-spinner']"><span matLine>Wait for config - spinner</span></a>
+      <a mat-list-item [routerLink]="['/wait-hidden']"><span matLine>Wait for config - hidden</span></a>
+      <!--<a mat-list-item [routerLink]="['/debug-ui']"><span matLine>Debug UI elements</span></a>
+      <a mat-list-item [routerLink]="['/debug-console']"><span matLine>Debug on console</span></a>-->
+    </mat-nav-list>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>
+

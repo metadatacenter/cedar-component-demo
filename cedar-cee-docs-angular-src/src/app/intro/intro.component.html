@@ -1,0 +1,75 @@
+<h1>CEDAR Embeddable Editor</h1>
+<h2>Documentation and samples</h2>
+
+<div class="card-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>About</mat-card-title>
+      <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <div>&nbsp;</div>
+      <img mat-card-image src="https://metadatacenter.org/wp-content/uploads/2019/03/mobile-fallback-background-1500x812.png"
+           alt="metadatacenter.org" style="margin-top:15px">
+      <p style="text-align: justify">
+        The CEDAR Embeddable Editor is as a web component that implements the functionality of the CEDAR Metadata Editor.
+      </p>
+      <p style="text-align: justify">
+        It takes CEDAR JSON-LD templates as input, and produces CEDAR JSON-LD metadata.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon class="link-icon">crop_portrait</mat-icon>
+      </div>
+      <mat-card-title>Sample</mat-card-title>
+      <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <div>&nbsp;</div>
+      <cedar-embeddable-editor
+        [config]="configuration"
+      ></cedar-embeddable-editor>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon class="link-icon">link</mat-icon>
+      </div>
+      <mat-card-title>Links</mat-card-title>
+      <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <div>&nbsp;</div>
+      <section>
+        <h3>Documentation (this guide)</h3>
+        <a mat-raised-button href="https://docs.cee.staging.metadatacenter.org/" target="_blank">https://docs.cee.staging.metadatacenter.org/</a>
+      </section>
+      <mat-divider></mat-divider>
+      <section>
+        <h3>Demo application</h3>
+        <a mat-raised-button href="https://demo.cee.staging.metadatacenter.org/" target="_blank">https://demo.cee.staging.metadatacenter.org/</a>
+      </section>
+      <mat-divider></mat-divider>
+      <section>
+        <h3>Demo application source</h3>
+        <a mat-raised-button href="https://github.com/metadatacenter/cedar-cee-demo-angular/" target="_blank">on Github</a>
+      </section>
+      <mat-divider></mat-divider>
+      <section>
+        <h3>Demo application terminology proxy source</h3>
+        <a mat-raised-button href="https://github.com/metadatacenter/cedar-cee-demo-api-php" target="_blank">on Github</a>
+      </section>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+  </mat-card>
+</div>
