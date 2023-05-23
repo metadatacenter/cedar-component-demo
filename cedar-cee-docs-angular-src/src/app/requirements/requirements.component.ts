@@ -35,7 +35,7 @@ export class RequirementsComponent implements OnInit {
 <script type="text/javascript" src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
 <!-- load the component -->
-<script type="text/javascript" src="https://component.metadatacenter.org/cedar-embeddable-editor/cedar-embeddable-editor-2.5.38.js"></script>
+<script type="text/javascript" src="https://component.metadatacenter.org/cedar-embeddable-editor/cedar-embeddable-editor-2.6.31.js"></script>
 <app-root></app-root>
 </body>
 </html>
