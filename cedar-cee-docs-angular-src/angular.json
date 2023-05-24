@@ -15,7 +15,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/cedar-cee-docs-angular-src",
             "index": "src/index.html",
@@ -35,7 +35,8 @@
               "src/styles.scss",
               "node_modules/highlight.js/styles/github.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "indexTransform": "./index-html-transform.ts"
           },
           "configurations": {
             "production": {
@@ -77,7 +78,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "cedar-cee-docs-angular:build",
             "port": 4280,
