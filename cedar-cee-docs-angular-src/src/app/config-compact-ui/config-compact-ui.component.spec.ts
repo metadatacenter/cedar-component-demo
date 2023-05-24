@@ -1,19 +1,19 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {WaitHiddenComponent} from './wait-hidden.component';
+import {ConfigCompactUIComponent} from './config-compact-u-i.component';
 
-describe('WaitSpinnerComponent', () => {
-  let component: WaitHiddenComponent;
-  let fixture: ComponentFixture<WaitHiddenComponent>;
+describe('ConfigCompactUIComponent', () => {
+  let component: ConfigCompactUIComponent;
+  let fixture: ComponentFixture<ConfigCompactUIComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WaitHiddenComponent]
+      declarations: [ConfigCompactUIComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WaitHiddenComponent);
+    fixture = TestBed.createComponent(ConfigCompactUIComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

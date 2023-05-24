@@ -8,6 +8,7 @@ import {AppConfigService} from './services/app-config.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ConfigBasicComponent} from './config-basic/config-basic.component';
+import {ConfigCompactUIComponent} from './config-compact-ui/config-compact-ui.component';
 import {ConfigControlledComponent} from './config-controlled/config-controlled.component';
 import {WaitSpinnerComponent} from './wait-spinner/wait-spinner.component';
 import {WaitHiddenComponent} from './wait-hidden/wait-hidden.component';
@@ -31,6 +32,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     ResourcesComponent,
     ParametersComponent,
     ConfigBasicComponent,
+    ConfigCompactUIComponent,
     ConfigControlledComponent,
     WaitSpinnerComponent,
     WaitHiddenComponent

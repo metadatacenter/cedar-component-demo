@@ -6,8 +6,9 @@ import {ConfigControlledComponent} from './config-controlled/config-controlled.c
 import {WaitSpinnerComponent} from './wait-spinner/wait-spinner.component';
 import {WaitHiddenComponent} from './wait-hidden/wait-hidden.component';
 import {RequirementsComponent} from './requirements/requirements.component';
-import {ParametersComponent} from "./parameters/parameters.component";
-import {ResourcesComponent} from "./resources/resources.component";
+import {ParametersComponent} from './parameters/parameters.component';
+import {ResourcesComponent} from './resources/resources.component';
+import {ConfigCompactUIComponent} from './config-compact-ui/config-compact-ui.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'config-basic',
     component: ConfigBasicComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'config-compact-ui',
+    component: ConfigCompactUIComponent,
     pathMatch: 'full'
   },
   {
