@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(assets/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-  local('MaterialIcons-Regular'),
-  url(assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
-  url(assets/fonts/MaterialIcons-Regular.woff) format('woff'),
-  url(assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
+@import 'styles/roboto.scss';
+@import 'styles/material-icons.scss';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
