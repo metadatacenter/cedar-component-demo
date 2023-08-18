@@ -12,7 +12,7 @@
     "sampleTemplateLocationPrefix": "http://localhost:4240/cedar-embeddable-editor-sample-templates/",
     "showSampleTemplateLinks": true,
     "loadSampleTemplateName": "01",
-    "terminologyProxyUrl": "https://api-php.cee.metadatacenter.orgx/index.php"
+    "terminologyIntegratedSearchUrl": "https://api-php.cee.metadatacenter.orgx/index.php"
   },
   "apiUrl": "https://open.metadatacenter.org/",
   "cedarUrl": "https://cedar.metadatacenter.org/",

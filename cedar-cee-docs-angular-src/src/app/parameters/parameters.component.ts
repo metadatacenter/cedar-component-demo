@@ -18,7 +18,7 @@ export class ParametersComponent implements OnInit {
     "showFooter": true,
     "showHeader": true,
 
-    "terminologyProxyUrl": "https://api-php.cee.metadatacenter.org/index.php",
+    "terminologyIntegratedSearchUrl": "https://api-php.cee.metadatacenter.org/index.php",
 
     "showTemplateRenderingRepresentation": true,
     "showMultiInstanceInfo": true,

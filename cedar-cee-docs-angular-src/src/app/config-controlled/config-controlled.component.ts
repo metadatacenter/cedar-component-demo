@@ -13,7 +13,7 @@ export class ConfigControlledComponent implements OnInit {
   configuration = {
     sampleTemplateLocationPrefix: 'https://component.metadatacenter.orgx/cedar-embeddable-editor-sample-templates/',
     loadSampleTemplateName: '43',
-    terminologyProxyUrl: 'https://api-php.cee.staging.metadatacenter.org/index.php'
+    terminologyIntegratedSearchUrl: 'https://api-php.cee.staging.metadatacenter.org/index.php'
   };
 
   constructor() {
