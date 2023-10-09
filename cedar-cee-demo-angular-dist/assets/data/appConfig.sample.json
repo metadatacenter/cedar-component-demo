@@ -9,7 +9,7 @@
     "showFooter": true,
     "showHeader": true,
 
-    "terminologyProxyUrl": "https://api-php.cee.metadatacenter.org/index.php",
+    "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search",
 
     "showTemplateRenderingRepresentation": true,
     "showMultiInstanceInfo": true,

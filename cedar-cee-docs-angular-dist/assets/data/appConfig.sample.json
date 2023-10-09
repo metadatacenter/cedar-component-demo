@@ -5,7 +5,7 @@
     "expandSampleTemplateLinks": true,
     "loadSampleTemplateName": "01",
 
-    "terminologyProxyUrl": "https://api-php.cee.metadatacenter.orgx/index.php",
+    "terminologyIntegratedSearchUrl": "https://api-php.cee.metadatacenter.orgx/index.php",
 
     "collapseStaticComponents": false,
 
