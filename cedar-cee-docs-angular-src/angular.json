@@ -144,5 +144,8 @@
         }
       }
     }},
-  "defaultProject": "cedar-cee-docs-angular"
+  "defaultProject": "cedar-cee-docs-angular",
+  "cli": {
+    "analytics": false
+  }
 }
