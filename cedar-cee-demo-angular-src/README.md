@@ -4,7 +4,7 @@ This demo provides a sample integration of CEE into an Angular 2 application.
 
 # Installation
 
-All of the required dependencies, such as javascript libraries, images, and the latest version of the CEE Webcomponent are already packaged with this demo. You can use this demo as a shell for your own Angular application or as a reference on how to embed and configure the CEE Webcomponent in your own Angular environment.
+All the required dependencies, such as javascript libraries, images, and the latest version of the CEE Webcomponent are already packaged with this demo. You can use this demo as a shell for your own Angular application or as a reference on how to embed and configure the CEE Webcomponent in your own Angular environment.
 
 ## Clone the repository
 

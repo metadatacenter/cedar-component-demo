@@ -7,8 +7,11 @@ If you have a running webserver, you can just drop the following files under it,
 * `index.html`
 * `app-subfolder-1`
 * `assets`
+* `node_modules/cedar-artifact-viewer`
 
-Otherwise, please follow the installation
+You will need to execute an `npm install` to retrieve the cedar-artifact-viewer.
+
+If you do not have a running webserver, please follow the installation below:
 
 # Installation
 
