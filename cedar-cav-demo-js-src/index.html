@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CEDAR Artifact Viewer - JavaScript Demo - Root folder</title>
+  <script src="node_modules/cedar-artifact-viewer/cedar-artifact-viewer.js"></script>
+  <script>
+    const cavConfig = {
+      showHeader: true,
+      showFooter: true,
+    };
+
+    function loadJsonFile(filePath) {
+      return fetch(filePath)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+          })
+          .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+            throw error; // Re-throw the error for further handling if necessary
+          });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const cavComponent = document.getElementById('cedarArtifactViewerComponent');
+
+      cavComponent.config = cavConfig;
+
+      loadJsonFile('assets/samples/01/template.json')
+          .then(data => {
+            cavComponent.templateObject = data;
+          })
+          .catch(error => {
+            console.error('Error loading JSON file:', error);
+          });
+    });
+  </script>
+</head>
+<body>
+<h1>CEDAR Artifact Viewer - JavaScript Demo - Root folder</h1>
+<h2>/index.html</h2>
+
+<a href="app-subfolder-1/index.html">Go to: /app-subfolder-1/index.html</a>
+<hr />
+<cedar-artifact-viewer id="cedarArtifactViewerComponent"></cedar-artifact-viewer>
+
+</body>
+</html>
