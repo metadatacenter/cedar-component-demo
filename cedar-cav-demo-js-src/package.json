@@ -7,7 +7,7 @@
   "dependencies": {
     "@angular/core": "^15.2.4",
     "@angular/compiler": "^15.2.9",
-    "cedar-artifact-viewer": "^0.9.4"
+    "cedar-artifact-viewer": "^0.9.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.4",
