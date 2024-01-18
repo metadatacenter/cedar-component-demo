@@ -33,11 +33,11 @@
 
       cavComponent.config = cavConfig;
 
-      loadJsonFile('../assets/samples/02/template.json')
+      loadJsonFile('../assets/samples/03/template.json')
           .then(data => {
             cavComponent.templateObject = data;
 
-            loadJsonFile('../assets/samples/02/metadata.json')
+            loadJsonFile('../assets/samples/03/metadata.json')
                 .then(data => {
                   cavComponent.instanceObject = data;
                 })
