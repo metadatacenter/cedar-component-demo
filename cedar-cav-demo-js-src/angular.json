@@ -19,13 +19,7 @@
               "src/../index.html",
               "src/../app-subfolder-1/index.html",
               "src/../node_modules/cedar-artifact-viewer/cedar-artifact-viewer.js",
-              "src/../assets/i18n-cav/en.json",
-              "src/../assets/i18n-cav/hu.json",
-              "src/../assets/fonts/Material-Icons.woff2",
-              "src/../assets/samples/01/metadata.json",
-              "src/../assets/samples/01/template.json",
-              "src/../assets/samples/02/metadata.json",
-              "src/../assets/samples/02/template.json"
+              "src/../assets/"
             ]
           },
           "configurations": {

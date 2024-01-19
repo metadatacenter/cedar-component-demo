@@ -1,13 +1,13 @@
 {
   "name": "cedar-cav-demo-js-src",
-  "version": "2.6.51",
+  "version": "2.6.52",
   "publishConfig": {
     "registry": "https://nexus.bmir.stanford.edu/repository/npm-cedar/"
   },
   "dependencies": {
     "@angular/core": "^15.2.4",
     "@angular/compiler": "^15.2.9",
-    "cedar-artifact-viewer": "^0.9.4"
+    "cedar-artifact-viewer": "^0.9.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.4",
