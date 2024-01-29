@@ -78,6 +78,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "^1.0.12"
+    "cedar-embeddable-editor": "^1.0.14"
   }
 }
