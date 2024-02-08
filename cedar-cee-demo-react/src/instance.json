@@ -1,0 +1,72 @@
+{
+    "@context": {
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "pav": "http://purl.org/pav/",
+      "schema": "http://schema.org/",
+      "oslc": "http://open-services.net/ns/core#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "rdfs:label": {
+        "@type": "xsd:string"
+      },
+      "schema:isBasedOn": {
+        "@type": "@id"
+      },
+      "schema:name": {
+        "@type": "xsd:string"
+      },
+      "schema:description": {
+        "@type": "xsd:string"
+      },
+      "pav:derivedFrom": {
+        "@type": "@id"
+      },
+      "pav:createdOn": {
+        "@type": "xsd:dateTime"
+      },
+      "pav:createdBy": {
+        "@type": "@id"
+      },
+      "pav:lastUpdatedOn": {
+        "@type": "xsd:dateTime"
+      },
+      "oslc:modifiedBy": {
+        "@type": "@id"
+      },
+      "skos:notation": {
+        "@type": "xsd:string"
+      },
+      "Name": "https://schema.metadatacenter.orgx/properties/98e49493-9b4d-4c92-915b-beecc7908abe",
+      "Surname": "https://schema.metadatacenter.orgx/properties/d88635cc-54ae-41be-9ed6-9bcde94e4cca",
+      "Web Page": "https://schema.metadatacenter.orgx/properties/eb1a084a-9a1e-4bf0-ba8c-a9c67933f67b",
+      "Element to be nested": "https://schema.metadatacenter.orgx/properties/d7b74dc6-5941-47d8-87e6-02a808259787"
+    },
+    "Name": {
+      "@value": "John"
+    },
+    "Surname": {
+      "@value": "Doe"
+    },
+    "Web Page": {
+      "@id": "www.johndoe.com"
+    },
+    "Element to be nested": {
+      "@context": {
+        "Name": "https://schema.metadatacenter.orgx/properties/b96f8187-d626-4867-aa0c-8806ba806f48"
+      },
+      "Name": [
+        {
+          "@value": "NestedElementName"
+        }
+      ],
+      "@id": "https://repo.metadatacenter.orgx/template-element-instances/f4d01f23-6d4c-4bf9-acf1-c782b8f9d387"
+    },
+    "schema:isBasedOn": "https://repo.metadatacenter.orgx/templates/1e374e64-69ba-4331-aeb5-6fcdc4f4bcef",
+    "schema:name": "Example Template metadata",
+    "schema:description": "",
+    "pav:createdOn": "2024-02-07T17:47:21-08:00",
+    "pav:createdBy": "https://metadatacenter.org/users/0e97ec85-77a9-434c-8549-33f9eae22608",
+    "pav:lastUpdatedOn": "2024-02-07T17:47:21-08:00",
+    "oslc:modifiedBy": "https://metadatacenter.org/users/0e97ec85-77a9-434c-8549-33f9eae22608",
+    "@id": "https://repo.metadatacenter.orgx/template-instances/d0685923-2171-4629-b692-6203016472b7"
+  }
