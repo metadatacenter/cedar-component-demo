@@ -4,7 +4,8 @@
     "showSampleTemplateLinks": true,
     "loadSampleTemplateName": "01",
     "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search",
-    "showInstanceDataCore": true
+    "showInstanceDataCore": true,
+    "defaultLanguage": "en"
   },
   "apiUrl": "https://open.metadatacenter.org/",
   "cedarUrl": "https://cedar.metadatacenter.org/",

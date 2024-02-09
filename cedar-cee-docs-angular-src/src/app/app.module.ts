@@ -17,7 +17,7 @@ import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {ParametersComponent} from './parameters/parameters.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {MaterialModule} from './modules/material-module';
-import "cedar-embeddable-editor/cedar-embeddable-editor.js";
+import 'cedar-embeddable-editor/cedar-embeddable-editor.js';
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
