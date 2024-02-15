@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AppConfigService} from './services/app-config.service';
 import {HttpClientModule} from '@angular/common/http';
-import "cedar-embeddable-editor/cedar-embeddable-editor.js";
+import 'cedar-embeddable-editor/cedar-embeddable-editor.js';
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
     return appConfig.loadAppConfig();
