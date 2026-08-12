@@ -35,8 +35,7 @@
               "src/styles.scss",
               "node_modules/highlight.js/styles/github.css"
             ],
-            "scripts": [],
-            "indexTransform": "./index-html-transform.ts"
+            "scripts": []
           },
           "configurations": {
             "production": {

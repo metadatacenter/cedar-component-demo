@@ -27,8 +27,9 @@
 <!-- load the webcomponents loader, which injects the necessary polyfill bundle -->
 <script type="text/javascript" src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-<!-- load the component -->
-<script type="text/javascript" src="https://component.metadatacenter.org/cedar-embeddable-editor/cedar-embeddable-editor-2.9.2-SNAPSHOT.js"></script>
+<!-- The component arrives with the application bundle: `app.module.ts` imports
+     `cedar-embeddable-editor/cedar-embeddable-editor.js`, which registers the custom
+     element. Loading it again by tag would define the element twice. -->
 <app-root></app-root>
 </body>
 </html>
