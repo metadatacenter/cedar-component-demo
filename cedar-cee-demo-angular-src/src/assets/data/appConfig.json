@@ -1,8 +1,5 @@
 {
   "ceeConfig": {
-    "sampleTemplateLocationPrefix": "http://localhost:4240/cedar-embeddable-editor-sample-templates/",
-    "showSampleTemplateLinks": true,
-    "loadSampleTemplateName": "01",
     "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search",
     "showInstanceDataCore": true,
     "defaultLanguage": "en"

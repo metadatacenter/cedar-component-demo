@@ -18,6 +18,10 @@ git clone https://github.com/metadatacenter/cedar-cee-demo-angular.git
 
 Open the file `cedar-cee-demo-angular/assets/data/appConfig.json` in your favorite text editor or IDE and edit configuration parameters based on the instructions below.
 
+## The Template Being Edited
+
+The demo edits one template, `src/assets/data/template.json`, which the app serves as an asset and hands to the component as its `templateObject` property. Nothing is fetched from a template server. To edit a different template, replace that file with another CEDAR template.
+
 ## Configure endpoints (optional)
 
 ### Metadata save endpoint
@@ -56,7 +60,7 @@ Start the Angular server by running this following command:
 cedar-cee-demo-angular$ ng serve
 ```
 
-Navigate to `http://localhost:4200/index.html`.
+Navigate to `http://localhost:4260/index.html`.
 
 If the installation completed successfully, the CEDAR Embeddable error should load without errors.
 

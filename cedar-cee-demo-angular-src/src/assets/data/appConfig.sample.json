@@ -1,11 +1,5 @@
 {
   "ceeConfig": {
-    "sampleTemplateLocationPrefix": "https://component.metadatacenter.org/cedar-embeddable-editor-sample-templates/",
-    "loadSampleTemplateName": "01",
-
-    "showSampleTemplateLinks": true,
-    "expandedSampleTemplateLinks": true,
-
     "showFooter": true,
     "showHeader": true,
 

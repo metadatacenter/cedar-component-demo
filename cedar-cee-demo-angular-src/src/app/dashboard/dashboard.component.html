@@ -1,8 +1,9 @@
 <p>CEDAR Embeddable Editor Embedded from HERE</p>
 <hr/>
-<ng-container *ngIf="confService.appConfig.ceeConfig != null">
+<ng-container *ngIf="confService.appConfig.ceeConfig != null && confService.template != null">
   <cedar-embeddable-editor
     [config]="confService.appConfig.ceeConfig"
+    [templateObject]="confService.template"
   ></cedar-embeddable-editor>
 </ng-container>
 <hr/>
