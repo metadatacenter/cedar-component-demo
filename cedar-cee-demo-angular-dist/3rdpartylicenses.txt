@@ -35,7 +35,7 @@ MIT
 @angular/router
 MIT
 
-cedar-embeddable-editor
+@org.metadatacenter/cedar-embeddable-editor
 ISC
 
 rxjs

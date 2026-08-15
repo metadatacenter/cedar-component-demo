@@ -1,20 +1,6 @@
 {
   "ceeConfig": {
-    "showFooter": true,
-    "showHeader": true,
-
-    "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search",
-
-    "showTemplateRenderingRepresentation": true,
-    "showMultiInstanceInfo": true,
-    "showTemplateSourceData": true,
-    "showInstanceDataCore": true,
-    "showInstanceDataFull": true,
-
-    "expandedInstanceDataCore": true,
-    "expandedInstanceDataFull": true,
-    "expandedTemplateSourceData": true,
-    "expandedTemplateRenderingRepresentation": true,
-    "expandedMultiInstanceInfo": true
+    "showDownloadMenu": true,
+    "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search"
   }
 }
