@@ -5,7 +5,7 @@ let template = require('./template.json');
 
 class CeeComponent extends Component {
 
-    conf = {"showInstanceDataCore": false, "showInstanceDataFull": false, "showTemplateSourceData": false};
+    conf = {"showDownloadMenu": true};
 
     componentDidMount() {
         // Both have to be set as properties: React would render an object attribute as a string.

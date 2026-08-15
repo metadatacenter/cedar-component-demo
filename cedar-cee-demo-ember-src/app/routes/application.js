@@ -7,7 +7,7 @@ export default class ApplicationRoute extends Route {
   async model() {
     const response = await fetch('/data/template.json');
     return {
-      conf: {},
+      conf: { showDownloadMenu: true },
       template: await response.json(),
     };
   }
