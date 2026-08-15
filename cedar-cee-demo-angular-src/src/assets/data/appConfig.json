@@ -1,6 +1,7 @@
 {
   "ceeConfig": {
-    "terminologyIntegratedSearchUrl": "https://terminology.metadatacenter.org/bioportal/integrated-search",
+    "terminologyBaseUrl": "https://terminology.metadatacenter.org/",
+    "bridgeBaseUrl": "https://bridge.metadatacenter.org/",
     "showInstanceDataCore": true,
     "defaultLanguage": "en"
   },
