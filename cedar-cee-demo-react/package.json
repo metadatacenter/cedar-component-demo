@@ -1,5 +1,6 @@
 {
   "name": "cedar-cee-demo-react-src",
+  "license": "BSD-2-Clause",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
