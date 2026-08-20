@@ -78,6 +78,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "npm:@org.metadatacenter/cedar-embeddable-editor@^2.0.0-dev.20260820.9eb2001"
+    "cedar-embeddable-editor": "npm:@org.metadatacenter/cedar-embeddable-editor@^2.0.0-dev.20260820.ffe2e39"
   }
 }
