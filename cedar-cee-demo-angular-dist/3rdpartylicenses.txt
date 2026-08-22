@@ -35,7 +35,7 @@ MIT
 @angular/router
 MIT
 
-@org.metadatacenter/cedar-embeddable-editor
+cedar-embeddable-editor
 BSD-2-Clause
 Copyright (c) 2024, The Board of Trustees of Leland Stanford Junior University
 All rights reserved.
