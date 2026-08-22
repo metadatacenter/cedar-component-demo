@@ -1,9 +1,33 @@
+<!--
+  The host's own header and footer.
+
+  CEE drew these itself until it stopped, behind `showHeader` and `showFooter`, and
+  this demo was the only consumer that switched them on. Both carried CEDAR's
+  identity in hardcoded strings and links, so an embedder took CEDAR's branding or
+  nothing. A host draws its own page — which, for a demo about embedding, is worth
+  showing rather than hiding.
+-->
+<header class="host-header">
+  <span class="host-logo"></span>
+  <span class="host-title">CEDAR Embeddable Editor</span>
+</header>
+
 <p>CEDAR Embeddable Editor Embedded from HERE</p>
-<hr/>
-<ng-container *ngIf="confService.appConfig.ceeConfig != null">
+<hr />
+<ng-container *ngIf="confService.appConfig.ceeConfig != null && confService.template != null">
   <cedar-embeddable-editor
     [config]="confService.appConfig.ceeConfig"
+    [templateObject]="confService.template"
   ></cedar-embeddable-editor>
 </ng-container>
-<hr/>
+<hr />
 <p>CEDAR Embeddable Editor Embedded until HERE</p>
+
+<footer class="host-footer">
+  <p>CEDAR is maintained by the Stanford Division of Computational Medicine.</p>
+  <p>
+    <a href="https://more.metadatacenter.org/tools-training/support/#contact" target="_blank" rel="noreferrer">
+      Contact CEDAR
+    </a>
+  </p>
+</footer>

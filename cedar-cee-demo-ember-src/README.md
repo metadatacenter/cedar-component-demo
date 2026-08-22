@@ -24,6 +24,10 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
+### The Template Being Edited
+
+The demo edits one template, `public/data/template.json`, which the application route reads and hands to the component as its `templateObject` property. Nothing is fetched from a template server. To edit a different template, replace that file with another CEDAR template.
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details

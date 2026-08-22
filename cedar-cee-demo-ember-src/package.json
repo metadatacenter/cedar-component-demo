@@ -1,10 +1,10 @@
 {
   "name": "cedar-cee-demo-ember-src",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "private": true,
   "description": "Small description for cedar-cee-demo-ember-src goes here",
   "repository": "",
-  "license": "MIT",
+  "license": "BSD-2-Clause",
   "author": "",
   "directories": {
     "doc": "doc",
@@ -78,6 +78,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "^1.5.2"
+    "cedar-embeddable-editor": "2.0.1"
   }
 }

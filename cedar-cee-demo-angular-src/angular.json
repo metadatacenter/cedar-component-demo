@@ -39,8 +39,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "indexTransform": "./index-html-transform.ts"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -152,7 +151,8 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "cedar-cee-demo-angular",
   "cli": {
     "analytics": false

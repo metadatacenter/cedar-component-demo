@@ -3,19 +3,20 @@ import 'cedar-embeddable-editor';
 
 let conf = require('./ceeConf.json');
 let template = require('./template.json');
-let instance = require('./instance.json');
 
 class CeeComponent extends Component {
 
+    conf = {"showDownloadMenu": true};
+
     componentDidMount() {
+        // Both have to be set as properties: React would render an object attribute as a string.
         let cee = document.querySelector('cedar-embeddable-editor');
-        cee.config = conf;
+        cee.config = this.conf;
         cee.templateObject = template;
-        cee.instanceObject = instance;
     }
 
     render() {
-        return <cedar-embeddable-editor/>
+        return <cedar-embeddable-editor />
     }
 }
 export default CeeComponent;

@@ -13,6 +13,13 @@ Clone this repository onto a local directory of your choice:
 ```shell
 git clone https://github.com/metadatacenter/cedar-cee-demo-react.git
 ```
+
+## The Template Being Edited
+
+The demo edits one template, `src/template.json`, bundled with the application and handed to the component as its `templateObject` property. Nothing is fetched from a template server. To edit a different template, replace that file with another CEDAR template.
+
+Both `config` and `templateObject` are assigned as properties in `CeeComponent`, not written as JSX attributes: React renders an attribute value as a string, and the component rejects a configuration that arrives as one.
+
 # Start server and navigate to the demo app in browser
 
 Start the React server by running this following command:
