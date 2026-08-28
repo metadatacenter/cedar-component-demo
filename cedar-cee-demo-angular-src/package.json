@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-angular",
-  "version": "2.9.3-SNAPSHOT",
+  "version": "2.9.4-SNAPSHOT",
   "publishConfig": {
     "registry": "https://nexus.bmir.stanford.edu/repository/npm-cedar/"
   },
@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "^15.2.9",
     "@angular/router": "^15.2.9",
     "@webcomponents/webcomponentsjs": "^2.8.0",
-    "cedar-embeddable-editor": "npm:@org.metadatacenter/cedar-embeddable-editor@2.0.2-dev.20260824.48283fb",
+    "cedar-embeddable-editor": "2.0.3",
     "core-js": "^3.29.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
