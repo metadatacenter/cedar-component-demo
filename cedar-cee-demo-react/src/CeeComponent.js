@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'cedar-embeddable-editor';
 
+let conf = require('./ceeConf.json');
 let template = require('./template.json');
 
 class CeeComponent extends Component {
