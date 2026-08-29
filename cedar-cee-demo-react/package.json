@@ -1,7 +1,7 @@
 {
   "name": "cedar-cee-demo-react-src",
   "license": "BSD-2-Clause",
-  "version": "0.1.0",
+  "version": "2.9.4-SNAPSHOT",
   "private": true,
   "dependencies": {
     "cedar-embeddable-editor": "2.0.3",

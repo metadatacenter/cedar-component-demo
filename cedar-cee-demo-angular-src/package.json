@@ -1,9 +1,7 @@
 {
   "name": "cedar-cee-demo-angular",
   "version": "2.9.4-SNAPSHOT",
-  "publishConfig": {
-    "registry": "https://nexus.bmir.stanford.edu/repository/npm-cedar/"
-  },
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
