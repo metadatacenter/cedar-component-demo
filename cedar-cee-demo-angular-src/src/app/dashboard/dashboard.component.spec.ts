@@ -1,26 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-// AppModule is what imports the bundle in the running app, and this spec does not
-// load AppModule. Without this the element is never upgraded and stays empty.
+// The application imports the bundle from app.config.ts, which no spec loads. Without
+// this the element is never upgraded and its shadow root stays empty.
 import 'cedar-embeddable-editor/cedar-embeddable-editor.js';
 import { DashboardComponent } from './dashboard.component';
 import { AppConfigService } from '../services/app-config.service';
 import appConfig from '../../assets/data/appConfig.json';
 import template from '../../assets/data/template.json';
 
-// The service the component reads is normally filled by an APP_INITIALIZER over HTTP.
-// This one is already filled, from the same two files the running app fetches, so the
-// test exercises the configuration and template the demo actually ships.
+// The service is normally filled before startup by an initializer reading these two
+// files over HTTP. This one is already filled, from the same files, so the specs
+// exercise the configuration and template the demo actually ships.
 class LoadedAppConfigService {
   appConfig = appConfig;
   template = template;
 }
 
-// CEE renders into an open shadow root, and it does so after its own asynchronous
-// startup, which Angular's fixture knows nothing about. Poll rather than guess, and
-// give the specs that wait for it more than Jasmine's default five seconds.
-const EDITOR_STARTUP_MS = 30000;
+// CEE renders into an open shadow root, after its own asynchronous startup, which
+// Angular's fixture knows nothing about. Poll rather than guess.
 async function shadowTextOf(element: Element, contains: string): Promise<string> {
   for (let attempt = 0; attempt < 100; attempt++) {
     const text = element.shadowRoot?.textContent ?? '';
@@ -38,9 +35,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
-      providers: [{ provide: AppConfigService, useClass: LoadedAppConfigService }],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      imports: [DashboardComponent],
+      providers: [{ provide: AppConfigService, useClass: LoadedAppConfigService }]
     }).compileComponents();
   });
 
@@ -68,17 +64,17 @@ describe('DashboardComponent', () => {
 
     expect(text).toContain('eDNA ECT Demonstration');
     expect(text).toContain('SpatialCoverage');
-  }, EDITOR_STARTUP_MS);
+  });
 
   it('gives the editor a configuration it acts on', async () => {
     const editor = fixture.nativeElement.querySelector('cedar-embeddable-editor');
     await shadowTextOf(editor, 'eDNA ECT Demonstration');
-    const icons = Array.from(editor.shadowRoot.querySelectorAll('mat-icon'), (i: Element) =>
-      i.textContent?.trim()
+    const icons = Array.from(editor.shadowRoot.querySelectorAll('mat-icon'), (icon: Element) =>
+      icon.textContent?.trim()
     );
 
     // showDownloadMenu is the one visible flag the demo sets; without it CEE draws no
     // download control, so the icon is the evidence the configuration arrived.
     expect(icons).toContain('file_download');
-  }, EDITOR_STARTUP_MS);
+  });
 });
