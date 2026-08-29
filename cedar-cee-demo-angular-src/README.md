@@ -1,6 +1,6 @@
-# CEDAR Embeddable Editor (CEE) Angular 2 Demo
+# CEDAR Embeddable Editor (CEE) Angular Demo
 
-This demo provides a sample integration of CEE into an Angular 2 application.
+This demo provides a sample integration of CEE into an Angular application.
 
 # Installation
 
@@ -19,10 +19,11 @@ git clone https://github.com/metadatacenter/cedar-component-demo.git
 Open the file `cedar-cee-demo-angular-src/src/assets/data/appConfig.json` in your favorite text editor or IDE. Its `ceeConfig` object is what the demo hands to the component as the `config` property; the keys outside that object are not read.
 
 CEE reads a fixed set of configuration keys and answers an unrecognized one with a
-console error naming it. This demo sets three:
+console error naming it. This demo sets four:
 
 ```json
 "ceeConfig": {
+  "showDownloadMenu": true,
   "terminologyBaseUrl": "https://terminology.metadatacenter.org/",
   "bridgeBaseUrl": "https://bridge.metadatacenter.org/",
   "defaultLanguage": "en"

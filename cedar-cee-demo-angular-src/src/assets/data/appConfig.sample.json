@@ -1,7 +1,0 @@
-{
-  "ceeConfig": {
-    "showDownloadMenu": true,
-    "terminologyBaseUrl": "https://terminology.metadatacenter.org/",
-    "bridgeBaseUrl": "https://bridge.metadatacenter.org/"
-  }
-}
