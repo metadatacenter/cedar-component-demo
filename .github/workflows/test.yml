@@ -1,0 +1,82 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  demo:
+    name: ${{ matrix.demo }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    strategy:
+      # One demo failing should not hide the state of the other two.
+      fail-fast: false
+      matrix:
+        include:
+          - demo: angular
+            directory: cedar-cee-demo-angular-src
+            test: npm test
+          - demo: ember
+            directory: cedar-cee-demo-ember-src
+            # `npm test` here also runs the linter, which this job runs on its own.
+            test: npm run test:ember
+          - demo: react
+            directory: cedar-cee-demo-react
+            test: npm test
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.directory }}
+
+    steps:
+      - name: Check out the demos
+        uses: actions/checkout@v4
+
+      # One Node for all three, the version CEE builds and tests on. Angular 22
+      # accepts "^22.22.3 || ^24.15.0 || >=26", and 24 is the active LTS.
+      #
+      # Nothing here resolves from Nexus: all three demos pin the public npmjs
+      # release of CEE, and no lockfile entry names another registry. The
+      # `@org.metadatacenter` scope each .npmrc declares is consulted only while a
+      # development snapshot is pinned, which is not the state these are committed in.
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: npm
+          cache-dependency-path: ${{ matrix.directory }}/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # Angular and React run their suites in jsdom. Ember drives the Chrome the
+      # runner image already carries, which its testem config launches with
+      # --no-sandbox when CI is set.
+      - name: Test
+        run: ${{ matrix.test }}
+
+      - name: Build
+        run: npm run build
+
+      # cedar-cee-demo-angular-dist is the package the release publishes, built from
+      # the source this job just built. See the script for what it does and does not
+      # claim.
+      - name: Check the published Angular package against the build
+        if: matrix.demo == 'angular'
+        working-directory: .
+        run: .github/scripts/check-angular-dist.sh
