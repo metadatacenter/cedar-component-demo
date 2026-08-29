@@ -13,7 +13,9 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      // Keeping the context made Karma report "Some of your tests did a full page
+      // reload!" on every headless run, which reads as a failure the run does not have.
+      clearContext: true
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/cedar-cee-demo-angular'),
