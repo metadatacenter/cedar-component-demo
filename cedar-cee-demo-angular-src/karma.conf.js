@@ -9,18 +9,12 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       // Keeping the context made Karma report "Some of your tests did a full page
       // reload!" on every headless run, which reads as a failure the run does not have.
       clearContext: true
-    },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/cedar-cee-demo-angular'),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
