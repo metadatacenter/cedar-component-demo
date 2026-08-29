@@ -2,7 +2,6 @@
   "ceeConfig": {
     "terminologyBaseUrl": "https://terminology.metadatacenter.org/",
     "bridgeBaseUrl": "https://bridge.metadatacenter.org/",
-    "showInstanceDataCore": true,
     "defaultLanguage": "en"
   },
   "apiUrl": "https://open.metadatacenter.org/",

@@ -11,7 +11,7 @@ All the required dependencies, such as javascript libraries, images, and the lat
 Clone this repository onto a local directory of your choice:
 
 ```shell
-git clone https://github.com/metadatacenter/cedar-cee-demo-react.git
+git clone https://github.com/metadatacenter/cedar-component-demo.git
 ```
 
 ## The Template Being Edited
@@ -30,7 +30,7 @@ cedar-cee-demo-react$ npm start
 
 Navigate to `http://localhost:3000`.
 
-If the installation completed successfully, the CEDAR Embeddable error should load without errors.
+If the installation completed successfully, the CEDAR Embeddable Editor should load without errors.
 
 # Further reading
 
