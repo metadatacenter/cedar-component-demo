@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - name: Check out the demos
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # One Node for all three, the version CEE builds and tests on. Angular 22
       # accepts "^22.22.3 || ^24.15.0 || >=26", and 24 is the active LTS.
@@ -52,7 +52,7 @@ jobs:
       # `@org.metadatacenter` scope each .npmrc declares is consulted only while a
       # development snapshot is pinned, which is not the state these are committed in.
       - name: Use Node 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24.19.0
           cache: npm
