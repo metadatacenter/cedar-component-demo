@@ -32,6 +32,17 @@ Navigate to `http://localhost:3000`.
 
 If the installation completed successfully, the CEDAR Embeddable Editor should load without errors.
 
+# Building, testing and linting
+
+```shell
+cedar-cee-demo-react$ npm run build   # a production bundle, into build/
+cedar-cee-demo-react$ npm test        # the suite, once
+cedar-cee-demo-react$ npm run lint
+```
+
+The tests run against the real CEE bundle in a simulated browser, so they can look at
+what the editor rendered rather than only at where it was placed.
+
 # Further reading
 
 For more information on the CEE configuration and available features, please refer to the CEE documentation:
