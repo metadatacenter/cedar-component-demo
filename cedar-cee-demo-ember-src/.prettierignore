@@ -8,6 +8,10 @@
 /coverage/
 !.*
 .*/
+/pnpm-lock.yaml
+ember-cli-update.json
+*.html
 
-# ember-try
-/.node_modules.ember-try/
+# The template the demo edits. All three demos carry it byte for byte identical, so
+# reformatting this copy would make them disagree over whitespace alone.
+/public/data/template.json

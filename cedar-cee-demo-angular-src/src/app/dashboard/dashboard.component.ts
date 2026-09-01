@@ -1,25 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {AppConfigService} from '../services/app-config.service';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+
+import { AppConfigService } from '../services/app-config.service';
 
 @Component({
   selector: 'app-dashboard',
+  // cedar-embeddable-editor is a custom element, not an Angular component, so the
+  // template has to be allowed to contain a tag Angular does not know.
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-
-  confService: AppConfigService = null;
-
-  constructor(
-    private configService: AppConfigService
-  ) {
-    console.log('DashboardComponent.constructor');
-    this.confService = configService;
-    console.log(configService.appConfig.ceeConfig);
-  }
-
-  ngOnInit(): void {
-    console.log('DashboardComponent.ngOnInit');
-  }
-
+export class DashboardComponent {
+  readonly confService = inject(AppConfigService);
 }
