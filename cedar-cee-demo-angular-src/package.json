@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-angular",
-  "version": "2.9.5-SNAPSHOT",
+  "version": "2.9.6-SNAPSHOT",
   "private": true,
   "scripts": {
     "ng": "ng",
