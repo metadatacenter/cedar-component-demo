@@ -6,6 +6,9 @@
   "repository": "",
   "license": "BSD-2-Clause",
   "author": "",
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  },
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"

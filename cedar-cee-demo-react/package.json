@@ -4,6 +4,9 @@
   "version": "2.9.7-SNAPSHOT",
   "private": true,
   "type": "module",
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  },
   "scripts": {
     "start": "vite",
     "build": "vite build",
