@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-ember-src",
-  "version": "2.9.7-SNAPSHOT",
+  "version": "2.9.8-SNAPSHOT",
   "private": true,
   "description": "Small description for cedar-cee-demo-ember-src goes here",
   "repository": "",
@@ -88,6 +88,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "2.0.4"
+    "cedar-embeddable-editor": "2.0.5"
   }
 }
