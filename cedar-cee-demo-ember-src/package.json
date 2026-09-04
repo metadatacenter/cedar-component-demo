@@ -1,11 +1,14 @@
 {
   "name": "cedar-cee-demo-ember-src",
-  "version": "2.9.6",
+  "version": "2.9.7",
   "private": true,
   "description": "Small description for cedar-cee-demo-ember-src goes here",
   "repository": "",
   "license": "BSD-2-Clause",
   "author": "",
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  },
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"
@@ -85,6 +88,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "2.0.4"
+    "cedar-embeddable-editor": "2.0.5"
   }
 }

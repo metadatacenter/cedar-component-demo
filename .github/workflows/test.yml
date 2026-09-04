@@ -73,10 +73,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      # cedar-cee-demo-angular-dist is the package the release publishes, built from
-      # the source this job just built. See the script for what it does and does not
-      # claim.
-      - name: Check the published Angular package against the build
+      # Source CI is compile-only. A publish or release train materializes the tracked
+      # distribution in its disposable workspace; this job verifies only the output it
+      # just built and the public CEE version embedded in those bytes.
+      - name: Check the Angular source build
         if: matrix.demo == 'angular'
         working-directory: .
-        run: .github/scripts/check-angular-dist.sh
+        run: .github/scripts/check-angular-build.sh
