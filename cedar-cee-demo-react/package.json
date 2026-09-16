@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "cedar-embeddable-editor": "npm:@org.metadatacenter/cedar-embeddable-editor@2.0.15-dev.20260915.74d6193",
+    "cedar-embeddable-editor": "2.0.15",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
