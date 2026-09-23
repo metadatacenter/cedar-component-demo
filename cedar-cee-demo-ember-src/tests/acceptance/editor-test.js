@@ -62,8 +62,9 @@ module('Acceptance | editor', function (hooks) {
 
     // showDownloadMenu is the one visible flag the demo sets; without it CEE draws no
     // download control, so the button proves the configuration arrived.
-    assert.true(
-      downloadButton !== null,
+    assert.notStrictEqual(
+      downloadButton,
+      null,
       'the download control the configuration asks for is drawn',
     );
   });
