@@ -46,11 +46,9 @@ test('the editor renders the template it was given', async () => {
 test('the editor acts on the configuration it was given', async () => {
   const editor = mountEditor();
   await editorShadowText(editor);
-  const icons = [...editor.shadowRoot.querySelectorAll('mat-icon')].map((icon) =>
-    icon.textContent.trim()
-  );
+  const downloadButton = editor.shadowRoot.querySelector('button[aria-label="Download"]');
 
   // showDownloadMenu is the one visible flag the demo sets; without it CEE draws no
-  // download control, so the icon is the evidence the configuration arrived.
-  expect(icons).toContain('file_download');
+  // download control, so the button proves the configuration arrived.
+  expect(downloadButton).not.toBeNull();
 });

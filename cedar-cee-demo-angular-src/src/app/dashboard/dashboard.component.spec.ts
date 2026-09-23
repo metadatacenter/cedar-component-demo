@@ -69,12 +69,10 @@ describe('DashboardComponent', () => {
   it('gives the editor a configuration it acts on', async () => {
     const editor = fixture.nativeElement.querySelector('cedar-embeddable-editor');
     await shadowTextOf(editor, 'eDNA ECT Demonstration');
-    const icons = Array.from(editor.shadowRoot.querySelectorAll('mat-icon'), (icon: Element) =>
-      icon.textContent?.trim()
-    );
+    const downloadButton = editor.shadowRoot.querySelector('button[aria-label="Download"]');
 
     // showDownloadMenu is the one visible flag the demo sets; without it CEE draws no
-    // download control, so the icon is the evidence the configuration arrived.
-    expect(icons).toContain('file_download');
+    // download control, so the button proves the configuration arrived.
+    expect(downloadButton).not.toBeNull();
   });
 });

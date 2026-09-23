@@ -56,14 +56,14 @@ module('Acceptance | editor', function (hooks) {
     await editorShadowText();
 
     const editor = document.querySelector('cedar-embeddable-editor');
-    const icons = [...editor.shadowRoot.querySelectorAll('mat-icon')].map(
-      (icon) => icon.textContent.trim(),
+    const downloadButton = editor.shadowRoot.querySelector(
+      'button[aria-label="Download"]',
     );
 
     // showDownloadMenu is the one visible flag the demo sets; without it CEE draws no
-    // download control, so the icon is the evidence the configuration arrived.
+    // download control, so the button proves the configuration arrived.
     assert.true(
-      icons.includes('file_download'),
+      downloadButton !== null,
       'the download control the configuration asks for is drawn',
     );
   });
