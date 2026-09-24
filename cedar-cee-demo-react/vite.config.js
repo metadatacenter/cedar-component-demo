@@ -12,6 +12,7 @@ export default defineConfig({
     outDir: 'build'
   },
   test: {
+    maxWorkers: process.env.CEDAR_TEST_WORKERS ? Number(process.env.CEDAR_TEST_WORKERS) : undefined,
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/setup-tests.js']
