@@ -44,6 +44,11 @@ jobs:
       - name: Check out the demos
         uses: actions/checkout@v5
 
+      - name: Test the isolated demo runner
+        if: matrix.demo == 'angular'
+        run: python3 -m unittest discover -s scripts/tests
+        working-directory: .
+
       # One Node for all three, the version CEE builds and tests on. Angular 22
       # accepts "^22.22.3 || ^24.15.0 || >=26", and 24 is the active LTS.
       #
