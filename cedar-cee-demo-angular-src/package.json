@@ -30,8 +30,8 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular/build": "^22.2.0",
-    "@angular/cli": "~22.2.0",
+    "@angular/build": "22.2.4",
+    "@angular/cli": "22.2.4",
     "@angular/compiler-cli": "~22.2.0",
     "@vitest/coverage-v8": "^4.1.10",
     "angular-eslint": "^22.1.0",
@@ -40,5 +40,8 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.66.0",
     "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "vite": "8.3.4"
   }
 }
