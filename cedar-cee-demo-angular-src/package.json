@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-angular",
-  "version": "2.9.28",
+  "version": "2.9.29",
   "private": true,
   "scripts": {
     "ng": "ng",
@@ -24,14 +24,14 @@
     "@angular/core": "~22.2.0",
     "@angular/platform-browser": "~22.2.0",
     "@angular/router": "~22.2.0",
-    "cedar-embeddable-editor": "2.0.28",
+    "cedar-embeddable-editor": "2.0.29",
     "rxjs": "~7.8.0",
     "tslib": "^2.8.1",
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular/build": "^22.2.0",
-    "@angular/cli": "~22.2.0",
+    "@angular/build": "22.2.4",
+    "@angular/cli": "22.2.4",
     "@angular/compiler-cli": "~22.2.0",
     "@vitest/coverage-v8": "^4.1.10",
     "angular-eslint": "^22.1.0",
@@ -40,5 +40,8 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.66.0",
     "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "vite": "8.3.4"
   }
 }
