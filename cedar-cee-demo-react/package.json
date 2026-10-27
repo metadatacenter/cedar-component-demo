@@ -1,7 +1,7 @@
 {
   "name": "cedar-cee-demo-react-src",
   "license": "BSD-2-Clause",
-  "version": "2.9.30-SNAPSHOT",
+  "version": "2.9.30",
   "private": true,
   "type": "module",
   "allowScripts": {
@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "cedar-embeddable-editor": "npm:@org.metadatacenter/cedar-embeddable-editor@2.0.31-dev.20261027.4d0e91c",
+    "cedar-embeddable-editor": "2.0.30",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
