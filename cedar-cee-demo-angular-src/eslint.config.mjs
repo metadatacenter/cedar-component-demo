@@ -1,8 +1,8 @@
 // @ts-check
 /**
- * ESLint flat config. `angular-eslint` 22 requires ESLint 9, which makes flat config
- * the default, and the four `@angular-eslint/*` packages and two `@typescript-eslint/*`
- * packages are each one package upstream now.
+ * ESLint flat config, the only configuration format ESLint 10 reads. The four
+ * `@angular-eslint/*` packages and the two `@typescript-eslint/*` packages are each one
+ * package upstream now.
  *
  * `.mjs` rather than `.js` because package.json declares no `type`, so a bare `.js`
  * here would be parsed as CommonJS and these imports would fail.
