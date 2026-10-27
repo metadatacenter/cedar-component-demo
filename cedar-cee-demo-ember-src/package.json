@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-ember-src",
-  "version": "2.9.29",
+  "version": "2.9.30",
   "private": true,
   "description": "Small description for cedar-cee-demo-ember-src goes here",
   "repository": "",
@@ -60,19 +60,19 @@
     "ember-load-initializers": "^3.0.1",
     "ember-modifier": "^4.3.0",
     "ember-page-title": "^9.0.3",
-    "ember-qunit": "^9.1.0",
+    "ember-qunit": "^9.2.0",
     "ember-resolver": "^13.2.0",
     "ember-source": "~7.2.0",
-    "ember-template-lint": "^6.1.0",
+    "ember-template-lint": "^7.9.4",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-ember": "^12.7.5",
+    "eslint-plugin-ember": "^13.9.0",
     "eslint-plugin-n": "^17.24.0",
     "eslint-plugin-qunit": "^8.2.6",
     "globals": "^16.5.0",
     "prettier": "^3.9.6",
     "prettier-plugin-ember-template-tag": "^2.1.7",
-    "qunit": "^2.26.0",
+    "qunit": "^3.0.0",
     "qunit-dom": "^3.6.0",
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0",
@@ -89,6 +89,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "2.0.29"
+    "cedar-embeddable-editor": "2.0.30"
   }
 }

@@ -14,7 +14,9 @@
 # therefore fails on a correct dev snapshot.
 #
 # So: prove the install resolved what the manifest asked for, then prove the build
-# carries what that install actually stamps.
+# carries what that install actually stamps. CEE's bundle manifest records the stamp as
+# reportedVersion. A CEE released before it did carried its whole package.json, whose
+# version key the bundle kept, so the stamp is read from that instead.
 #
 # Run it after `npm run build` in cedar-cee-demo-angular-src.
 set -euo pipefail
@@ -39,15 +41,18 @@ if [ "$installed" != "$wanted" ]; then
 fi
 
 # The version CEE stamps into the bundle it ships. Bundling keeps that literal.
-stamp=$(grep -oE 'version:"[0-9]+\.[0-9]+\.[0-9]+[^"]*"' "$cee/cedar-embeddable-editor.js" |
-  head -1 | sed 's/^version:"//; s/"$//')
+stamp=$(node -p "require('./$cee/bundle-manifest.json').reportedVersion || ''")
+if [ -z "$stamp" ]; then
+  stamp=$(grep -oE 'version:"[0-9]+\.[0-9]+\.[0-9]+[^"]*"' "$cee/cedar-embeddable-editor.js" |
+    head -1 | sed 's/^version:"//; s/"$//')
+fi
 
 if [ -z "$stamp" ]; then
-  echo "::error::could not read the version stamp from $cee/cedar-embeddable-editor.js"
+  echo "::error::could not read the version stamp from $cee/bundle-manifest.json or $cee/cedar-embeddable-editor.js"
   exit 1
 fi
 
-if ! grep -q "version:\"$stamp\"" "$built/main.js"; then
+if ! grep -qF "\"$stamp\"" "$built/main.js"; then
   echo "::error::$built/main.js does not carry the stamp $stamp of the installed CEE $installed"
   exit 1
 fi
