@@ -1,6 +1,6 @@
 {
   "name": "cedar-cee-demo-ember-src",
-  "version": "2.9.32",
+  "version": "2.9.33",
   "private": true,
   "description": "Small description for cedar-cee-demo-ember-src goes here",
   "repository": "",
@@ -80,7 +80,9 @@
   },
   "overrides": {
     "shell-quote": "^1.11.0",
-    "tmp": "^0.2.7"
+    "tmp": "^0.2.7",
+    "minimatch@>=7 <11.0.1": "11.0.5",
+    "glob@>=9 <14.0.2": "14.0.4"
   },
   "engines": {
     "node": ">= 20.19.0"
@@ -89,6 +91,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "cedar-embeddable-editor": "2.0.32"
+    "cedar-embeddable-editor": "2.0.33"
   }
 }
