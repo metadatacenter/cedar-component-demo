@@ -1,7 +1,7 @@
 {
   "name": "cedar-cee-demo-react-src",
   "license": "BSD-2-Clause",
-  "version": "2.9.33",
+  "version": "2.9.34",
   "private": true,
   "type": "module",
   "allowScripts": {
