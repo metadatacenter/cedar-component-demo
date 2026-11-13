@@ -90,3 +90,24 @@ jobs:
         if: matrix.demo == 'angular'
         working-directory: .
         run: .github/scripts/check-angular-build.sh
+
+      - name: Install the browser gate and all three engines
+        working-directory: browser
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium firefox webkit
+
+      - name: Exercise the production framework in three browsers
+        working-directory: browser
+        env:
+          CEDAR_DEMO_FRAMEWORKS: ${{ matrix.demo }}
+          CEDAR_TEST_WORKERS: '2'
+        run: npm test
+
+      - name: Keep browser results and failure traces
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: browser-${{ matrix.demo }}
+          path: browser/reports
+          if-no-files-found: ignore
