@@ -4,6 +4,10 @@
 The CLI owns local invocation; CEE CI invokes this same runner on its staged package.
 Only a successful, unchanged input set can satisfy an --if-changed invocation.
 """
+from concurrent.futures import ThreadPoolExecutor
+from functools import lru_cache
+import platform
+import uuid
 import argparse
 import hashlib
 import json
@@ -73,9 +77,9 @@ def package_digest(package):
 
 
 def fingerprint(root, package=None, cee_source=None, consumer_inputs=()):
-    digest = hashlib.sha256(b'cee-demos-v1\0')
+    digest = hashlib.sha256(b'cee-demos-v2-browsers\0')
     for relative in source_files(root):
-        if relative.parts[0] in (*DEMOS, 'scripts', '.github') or len(relative.parts) == 1:
+        if relative.parts[0] in (*DEMOS, 'scripts', '.github', 'browser') or len(relative.parts) == 1:
             add_file(digest, relative.as_posix(), root / relative)
     if cee_source:
         selected = {p for pattern in CEE_INPUTS for p in cee_source.glob(pattern) if p.is_file()}
@@ -87,13 +91,34 @@ def fingerprint(root, package=None, cee_source=None, consumer_inputs=()):
         digest.update(json.dumps(package_contract(package), sort_keys=True).encode())
     else:
         digest.update(b'pinned-consumers')
+    digest.update(json.dumps(runtime_identity(), sort_keys=True).encode())
     return digest.hexdigest()
+
+
+@lru_cache(maxsize=1)
+def runtime_identity():
+    return {"system": platform.system(), "architecture": platform.machine(),
+            "node": subprocess.check_output(["node", "--version"], text=True).strip(),
+            "npm": subprocess.check_output(["npm", "--version"], text=True).strip()}
 
 
 def run(command, cwd, environment):
     print(f'[{cwd.name}] {" ".join(command)}', flush=True)
     start = time.monotonic()
-    subprocess.run(command, cwd=cwd, env=environment, check=True)
+    log_directory = environment.get('CEDAR_DEMO_LOG_DIR')
+    if log_directory:
+        log = Path(log_directory) / (cwd.name + '.log')
+        with log.open('a') as stream:
+            stream.write('\n' + ' '.join(command) + '\n')
+            stream.flush()
+            completed = subprocess.run(command, cwd=cwd, env=environment, stdout=stream, stderr=subprocess.STDOUT)
+        if completed.returncode:
+            print(f'[{cwd.name}] failed; log: {log}', flush=True)
+            print('\n'.join(log.read_text().splitlines()[-30:]), flush=True)
+            completed.check_returncode()
+    else:
+        subprocess.run(command, cwd=cwd, env=environment, check=True)
+    print(f'[{cwd.name}] finished in {time.monotonic() - start:.1f}s', flush=True)
     return {'demo': cwd.name, 'command': command, 'seconds': round(time.monotonic() - start, 3)}
 
 
@@ -109,9 +134,22 @@ def check(root=ROOT, *, package=None, cee_source=None, consumer_inputs=(), state
             print('CEE demos: embedding API, packaging, consumer pins and demo inputs unchanged; '
                   'reusing the passing demo check.', flush=True)
             return False
+    if state:
+        state.unlink(missing_ok=True)
     candidate_before = package_digest(package)
     print('Checking Angular, React and Ember CEE integrations.', flush=True)
-    environment = {**os.environ, 'CI': 'true'}
+    started = time.monotonic()
+    budget = max(1, int(os.environ.get('CEDAR_TEST_WORKERS', str(min(4, os.cpu_count() or 1)))))
+    jobs = min(len(DEMOS), budget)
+    demo_workers = max(1, budget // jobs)
+    reports = (state.parent / 'runs' if state else root / 'browser/reports') / uuid.uuid4().hex[:12]
+    reports.mkdir(parents=True, exist_ok=True)
+    environment = {**os.environ, 'CI': 'true', 'CEDAR_DEMO_LOG_DIR': str(reports),
+                   'CEDAR_DEMO_BROWSER_REPORT_DIR': str(reports / 'browser')}
+    # A caller's CI-only selection must not narrow the authoritative three-framework gate.
+    environment.pop('CEDAR_DEMO_FRAMEWORKS', None)
+    demo_environment = {**environment, **{key: str(demo_workers) for key in
+                        ('CEDAR_TEST_WORKERS', 'NG_BUILD_MAX_WORKERS', 'VITEST_MAX_WORKERS')}}
     commands = []
     with tempfile.TemporaryDirectory(prefix='cee-demos-', dir=scratch) as temporary:
         work = Path(temporary)
@@ -126,7 +164,8 @@ def check(root=ROOT, *, package=None, cee_source=None, consumer_inputs=(), state
                 candidate = work / 'cee.tgz'
                 shutil.copy2(package, candidate)
         files = source_files(root)
-        for demo in DEMOS:
+        def check_demo(demo):
+            demo_commands = []
             destination = work / demo
             for relative in files:
                 if relative.parts[0] != demo:
@@ -149,11 +188,36 @@ def check(root=ROOT, *, package=None, cee_source=None, consumer_inputs=(), state
                     raise ValueError(f'{demo} has no CEE dependency')
                 manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
             install = ['npm', 'install' if candidate else 'ci', '--no-audit', '--no-fund']
-            commands.append(run(install, destination, environment))
+            demo_commands.append(run(install, destination, demo_environment))
             for command in (['npm', 'run', 'lint'],
                             ['npm', 'run', 'test:ember'] if 'ember' in demo else ['npm', 'test', '--', '--watch=false'] if 'angular' in demo else ['npm', 'test'],
                             ['npm', 'run', 'build']):
-                commands.append(run(command, destination, environment))
+                demo_commands.append(run(command, destination, demo_environment))
+            return demo_commands
+
+        print(f'CEE demos: {jobs} parallel frameworks, {demo_workers} workers each; browser budget {budget}.', flush=True)
+        with ThreadPoolExecutor(max_workers=jobs) as pool:
+            for result in pool.map(check_demo, DEMOS):
+                commands.extend(result)
+        browser = work / 'browser'
+        for relative in files:
+            if relative.parts[0] == 'browser' and (root / relative).is_file():
+                target = work / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(root / relative, target)
+        browser_environment = {**environment, 'CEDAR_TEST_WORKERS': str(budget), 'CEDAR_DEMO_BUILD_ROOT': str(work)}
+        for command in (['npm', 'ci', '--no-audit', '--no-fund'],
+                        ['npx', 'playwright', 'install', 'chromium', 'firefox', 'webkit'], ['npm', 'test']):
+            commands.append(run(command, browser, browser_environment))
+        browser_report = json.loads((reports / 'browser/results.json').read_text())
+        expected_projects = {f'{framework}-{engine}' for framework in ('angular', 'react', 'ember')
+                             for engine in ('chromium', 'firefox', 'webkit')}
+        projects = [project['name'] for project in browser_report['config']['projects']]
+        if len(projects) != 9 or set(projects) != expected_projects:
+            raise ValueError(f'Browser report omitted a framework/engine: {projects}')
+        stats = browser_report['stats']
+        if stats.get('expected') != 27 or any(stats.get(key, 0) for key in ('unexpected', 'flaky', 'skipped')):
+            raise ValueError(f'Expected all 27 browser cases without retries or skips: {stats}')
         if (fingerprint(root, package, cee_source, consumer_inputs) != before
                 or package_digest(package) != candidate_before):
             raise ValueError('CEE demo inputs changed during verification; rerun the check')
@@ -161,12 +225,15 @@ def check(root=ROOT, *, package=None, cee_source=None, consumer_inputs=(), state
             state.parent.mkdir(parents=True, exist_ok=True)
             report = {'passed': True, 'inputs': before, 'commands': commands,
                       'candidate': str(package) if package else None,
-                      'candidateSha256': hashlib.sha256(candidate.read_bytes()).hexdigest() if candidate else None}
+                      'candidateSha256': hashlib.sha256(candidate.read_bytes()).hexdigest() if candidate else None,
+                      'runtime': runtime_identity(), 'browser': stats, 'reports': str(reports),
+                      'seconds': round(time.monotonic() - started, 3),
+                      'scheduler': {'demoJobs': jobs, 'demoWorkers': demo_workers, 'browserWorkers': budget}}
             with tempfile.NamedTemporaryFile(mode='w', dir=state.parent, delete=False) as stream:
                 json.dump(report, stream, indent=2)
                 stream.write('\n')
             os.replace(stream.name, state)
-    print('CEE demos: all three passed lint, integration tests and production builds.', flush=True)
+    print('CEE demos: all three passed lint, integration tests, production builds and Chromium/Firefox/WebKit consumer checks.', flush=True)
     return True
 
 
