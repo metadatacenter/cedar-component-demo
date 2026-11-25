@@ -52,7 +52,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@rollup/plugin-babel": "^7.1.0",
     "babel-plugin-ember-template-compilation": "^4.0.2",
-    "concurrently": "^9.2.4",
+    "concurrently": "^10.0.7",
     "decorator-transforms": "^2.4.0",
     "ember-cli": "~7.4.0",
     "ember-cli-babel": "^8.3.1",
@@ -65,17 +65,17 @@
     "ember-source": "~7.4.1",
     "ember-template-lint": "^7.9.4",
     "eslint": "^9.39.5",
-    "eslint-config-prettier": "^9.1.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ember": "^13.11.5",
-    "eslint-plugin-n": "^17.24.0",
+    "eslint-plugin-n": "^18.6.0",
     "eslint-plugin-qunit": "^8.2.6",
-    "globals": "^16.5.0",
+    "globals": "^17.14.0",
     "prettier": "^3.10.1",
     "prettier-plugin-ember-template-tag": "^2.1.7",
     "qunit": "^3.0.0",
     "qunit-dom": "^3.6.0",
-    "stylelint": "^17.14.1",
-    "stylelint-config-standard": "^40.0.0",
+    "stylelint": "^18.1.0",
+    "stylelint-config-standard": "^41.1.0",
     "vite": "^8.3.8"
   },
   "overrides": {
@@ -85,7 +85,7 @@
     "glob@>=9 <14.0.2": "14.0.4"
   },
   "engines": {
-    "node": ">= 20.19.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "ember": {
     "edition": "octane"
